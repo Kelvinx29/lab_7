@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Facultad de Ciencias Naturales — Feria Académica 2025</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/ciencias.css">
+</head>
+<body>
+  <header class="header">
+    <img src="../assets/logo-utp.svg" alt="Logo UTP">
+    <h1>Facultad de Ciencias Naturales</h1>
+    <nav class="nav">
+      <a href="../index.html">Inicio</a>
+      <a href="../charlas.html">Charlas</a>
+      <a href="../registro.html">Registro</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Carreras — Facultad de Ciencias Naturales</h2>
+      <div class="grid" style="margin-top:12px">
+        <!-- 5 carreras -->
+        <article class="card">
+          <img src="../assets/carreras/placeholder.png" alt="Biología" style="width:100%;height:140px;object-fit:cover;border-radius:6px">
+          <h3>Biología</h3>
+          <p>Descripción: Estudio de la vida y ecosistemas.</p>
+          <p class="small">Campo laboral: Investigación, conservación.</p>
+          <p><button class="btn open-register" data-carrera="Biología">Inscribirme</button></p>
+          <div class="inline-form" style="display:none;margin-top:8px">
+            <form class="miniForm">
+              <div class="form-row"><label>Nombre completo<input name="nombre" type="text" required></label></div>
+              <div class="form-row"><label>Cédula<input name="cedula" type="text" required></label></div>
+              <div class="form-row"><label>Teléfono<input name="telefono" type="text" required></label></div>
+              <div class="form-row"><label>Tipo de educación
+                <select name="educacion"><option>Secundaria</option><option>Técnica</option><option>Universitaria</option><option>Posgrado</option></select>
+              </label></div>
+              <input type="hidden" name="carrera" value="Biología">
+              <div style="display:flex;gap:8px"><button class="btn" type="submit">Registrar</button><button type="button" class="btn cancel" style="background:#999">Cancelar</button></div>
+            </form>
+          </div>
+        </article>
+        <article class="card">
+          <img src="../assets/carreras/placeholder.png" alt="Química" style="width:100%;height:140px;object-fit:cover;border-radius:6px">
+          <h3>Química</h3>
+          <p>Descripción: Ciencia de materiales y sustancias.</p>
+          <p class="small">Campo laboral: Industria, laboratorios.</p>
+          <p><a class="btn" href="../registro.html">Inscribirme</a></p>
+        </article>
+        <article class="card">
+          <img src="../assets/carreras/placeholder.png" alt="Física" style="width:100%;height:140px;object-fit:cover;border-radius:6px">
+          <h3>Física</h3>
+          <p>Descripción: Fundamentos de la materia y energía.</p>
+          <p class="small">Campo laboral: Investigación, docencia, industria.</p>
+          <p><a class="btn" href="../registro.html">Inscribirme</a></p>
+        </article>
+        <article class="card">
+          <img src="../assets/carreras/placeholder.png" alt="Matemáticas" style="width:100%;height:140px;object-fit:cover;border-radius:6px">
+          <h3>Matemáticas</h3>
+          <p>Descripción: Modelado y análisis cuantitativo.</p>
+          <p class="small">Campo laboral: Finanzas, investigación, docencia.</p>
+          <p><a class="btn" href="../registro.html">Inscribirme</a></p>
+        </article>
+        <article class="card">
+          <img src="../assets/carreras/placeholder.png" alt="Ciencias Ambientales" style="width:100%;height:140px;object-fit:cover;border-radius:6px">
+          <h3>Ciencias Ambientales</h3>
+          <p>Descripción: Gestión de recursos y sostenibilidad.</p>
+          <p class="small">Campo laboral: ONGs, gobierno, consultoría.</p>
+          <p><a class="btn" href="../registro.html">Inscribirme</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">Facultad de Ciencias Naturales — UTP</footer>
+  <script>
+    (function(){
+      const opens = document.querySelectorAll('.open-register');
+      opens.forEach(btn=>{
+        const card = btn.closest('.card');
+        const inline = card.querySelector('.inline-form');
+        const form = inline.querySelector('.miniForm');
+        const cancel = inline.querySelector('.cancel');
+        btn.addEventListener('click', ()=>{ inline.style.display='block'; inline.scrollIntoView({behavior:'smooth'}); });
+        cancel.addEventListener('click', ()=>{ inline.style.display='none'; });
+        form.addEventListener('submit', (e)=>{
+          e.preventDefault();
+          const fd = new FormData(form);
+          alert(`Registro carrera: ${fd.get('carrera')}\nNombre: ${fd.get('nombre')}\nCédula: ${fd.get('cedula')}\nTel: ${fd.get('telefono')}\nEducación: ${fd.get('educacion')}\n\n(Registro simulado)`);
+          form.reset(); inline.style.display='none';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

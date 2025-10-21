@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Charlas — Feria Académica 2025</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/charlas.css">
+</head>
+<body>
+  <header class="header">
+    <img src="assets/logo-utp.svg" alt="Logo UTP">
+    <h1>Charlas — Feria Académica 2025</h1>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="charlas.html">Charlas</a>
+      <a href="registro.html">Registro</a>
+      <a href="facultades/ingenieria.html">Ingeniería</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Agenda de Charlas — Semana</h2>
+      <p class="small">Seleccione una charla en la tabla semanal y complete el formulario para reservar su asistencia directamente aquí.</p>
+
+      <div class="table-wrap">
+        <table class="schedule" aria-describedby="schedule-desc">
+          <caption id="schedule-desc" class="small">Tabla de charlas por día y hora. Haga clic en una celda para registrarse.</caption>
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Lunes</th>
+              <th>Martes</th>
+              <th>Miércoles</th>
+              <th>Jueves</th>
+              <th>Viernes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>09:00</td>
+              <td><button class="session" data-title="Innovación en Ingeniería" data-day="Lunes" data-time="09:00">Innovación en Ingeniería<br><span class="small">Auditorio A</span></button></td>
+              <td><button class="session" data-title="Bioética y Sociedad" data-day="Martes" data-time="09:00">Bioética y Sociedad<br><span class="small">Aula 2</span></button></td>
+              <td><button class="session" data-title="Matemáticas Aplicadas" data-day="Miércoles" data-time="09:00">Matemáticas Aplicadas<br><span class="small">Aula 1</span></button></td>
+              <td><button class="session" data-title="Economía Global" data-day="Jueves" data-time="09:00">Economía Global<br><span class="small">Auditorio B</span></button></td>
+              <td><button class="session" data-title="Salud Comunitaria" data-day="Viernes" data-time="09:00">Salud Comunitaria<br><span class="small">Sala 101</span></button></td>
+            </tr>
+            <tr>
+              <td>11:00</td>
+              <td><button class="session" data-title="Sistemas Embebidos" data-day="Lunes" data-time="11:00">Sistemas Embebidos<br><span class="small">Laboratorio 3</span></button></td>
+              <td><button class="session" data-title="Química Ambiental" data-day="Martes" data-time="11:00">Química Ambiental<br><span class="small">Aula 3</span></button></td>
+              <td><button class="session" data-title="Finanzas Personales" data-day="Miércoles" data-time="11:00">Finanzas Personales<br><span class="small">Sala 2</span></button></td>
+              <td><button class="session" data-title="Diseño de Interiores" data-day="Jueves" data-time="11:00">Diseño de Interiores<br><span class="small">Taller 1</span></button></td>
+              <td><button class="session" data-title="Nutrición y Deportes" data-day="Viernes" data-time="11:00">Nutrición y Deportes<br><span class="small">Sala 102</span></button></td>
+            </tr>
+            <tr>
+              <td>14:00</td>
+              <td><button class="session" data-title="Robótica" data-day="Lunes" data-time="14:00">Robótica<br><span class="small">Laboratorio A</span></button></td>
+              <td><button class="session" data-title="Cambio Climático" data-day="Martes" data-time="14:00">Cambio Climático<br><span class="small">Auditorio A</span></button></td>
+              <td><button class="session" data-title="Emprendimiento" data-day="Miércoles" data-time="14:00">Emprendimiento<br><span class="small">Sala 3</span></button></td>
+              <td><button class="session" data-title="Urbanismo Sostenible" data-day="Jueves" data-time="14:00">Urbanismo Sostenible<br><span class="small">Auditorio B</span></button></td>
+              <td><button class="session" data-title="Prevención de Enfermedades" data-day="Viernes" data-time="14:00">Prevención de Enfermedades<br><span class="small">Sala 201</span></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="session-form" class="card session-form" aria-live="polite" style="margin-top:16px;display:none">
+        <h3 id="session-title">Registro a charla</h3>
+        <form id="charlaForm">
+          <div class="form-row"><label for="nombreC">Nombre completo</label><input id="nombreC" name="nombreC" type="text" required></div>
+          <div class="form-row"><label for="cedulaC">Cédula</label><input id="cedulaC" name="cedulaC" type="text" required></div>
+          <div class="form-row"><label for="telefonoC">Número de teléfono</label><input id="telefonoC" name="telefonoC" type="text" required></div>
+          <div class="form-row"><label for="educacionC">Tipo de educación</label>
+            <select id="educacionC" name="educacionC">
+              <option>Secundaria</option>
+              <option>Técnica</option>
+              <option>Universitaria</option>
+              <option>Posgrado</option>
+            </select>
+          </div>
+          <input type="hidden" id="charlaTitle" name="charlaTitle">
+          <input type="hidden" id="charlaDay" name="charlaDay">
+          <input type="hidden" id="charlaTime" name="charlaTime">
+          <p class="small">Este registro es local y de ejemplo (sin servidor).</p>
+          <button class="btn" type="submit">Registrar asistencia</button>
+          <button class="btn" id="cancelSession" type="button" style="background:#999;margin-left:8px">Cancelar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Universidad Tecnológica — Feria Académica 2025</footer>
+  <script>
+    // Interacción mínima: mostrar formulario con datos de la sesión seleccionada
+    (function(){
+      const sessions = document.querySelectorAll('.session');
+      const formWrap = document.getElementById('session-form');
+      const titleEl = document.getElementById('session-title');
+      const charlaTitle = document.getElementById('charlaTitle');
+      const charlaDay = document.getElementById('charlaDay');
+      const charlaTime = document.getElementById('charlaTime');
+      const form = document.getElementById('charlaForm');
+      const cancel = document.getElementById('cancelSession');
+
+      sessions.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const title = btn.dataset.title;
+          const day = btn.dataset.day;
+          const time = btn.dataset.time;
+          titleEl.textContent = `Registro a: ${title} — ${day} ${time}`;
+          charlaTitle.value = title;
+          charlaDay.value = day;
+          charlaTime.value = time;
+          formWrap.style.display = 'block';
+          formWrap.scrollIntoView({behavior:'smooth'});
+        });
+      });
+
+      cancel.addEventListener('click', ()=>{formWrap.style.display='none'});
+
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        // Simula registro: muestra resumen y limpia formulario
+        const data = new FormData(form);
+        const summary = `Registrado: ${data.get('nombreC')} — ${data.get('cedulaC')} — ${data.get('telefonoC')}\nCharla: ${data.get('charlaTitle')} (${data.get('charlaDay')} ${data.get('charlaTime')})`;
+        alert(summary + '\n\n(Registro simulado — sin servidor)');
+        form.reset();
+        formWrap.style.display='none';
+      });
+    })();
+  </script>
+</body>
+</html>
