@@ -1,6 +1,0 @@
-# Configuración mínima de Jekyll para evitar errores si el sitio es procesado por Jekyll
-# Nombre del sitio (opcional)
-title: Feria Académica 2025
-# Evitar que Jekyll procese archivos/carpetas si se usa GitHub Pages
-exclude:
-  - assets/carreras/placeholder.png
