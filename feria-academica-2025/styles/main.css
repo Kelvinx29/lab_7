@@ -1,0 +1,35 @@
+/* Estilos generales compartidos */
+:root{
+  --accent:#00457C;
+  --muted:#666;
+  --bg:#f6f8fb;
+  --card:#fff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Arial, Helvetica, sans-serif;background:var(--bg);color:#222;line-height:1.4;
+}
+.header{
+  display:flex;align-items:center;gap:16px;padding:12px 20px;background:linear-gradient(90deg,var(--accent),#0b66a6);color:#fff;
+}
+.header img{height:48px}
+.nav{margin-left:auto}
+.nav a{color:#fff;text-decoration:none;margin-left:12px;padding:6px 10px;border-radius:6px}
+.nav a:hover{background:rgba(255,255,255,0.1)}
+.container{max-width:1100px;margin:24px auto;padding:0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.08)}
+.footer{padding:18px;text-align:center;color:var(--muted);font-size:14px;margin-top:28px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none}
+.small{font-size:14px;color:var(--muted)}
+
+/* Formularios */
+.form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+input[type=text],input[type=email],select,textarea{padding:10px;border-radius:6px;border:1px solid #d6dbe3;background:#fff}
+label{font-weight:600}
+
+@media (max-width:600px){
+  .header{padding:10px}
+  .nav a{display:inline-block;margin-left:8px}
+}
